@@ -1,13 +1,12 @@
 import prompt from "prompt-sync";
 import { GuerreiroRpg, MagoRpg, ArqueiroRpg } from "./personagem";
-import { InimigoRpg } from "./inimigo";
+import { gerarInimigoAleatorio } from "./inimigo";
 import { BatalhaRpg } from "./batalha";
 
 const teclado = prompt();
 const guerreiro: GuerreiroRpg = new GuerreiroRpg("", "Guerreiro", "Gustavo", 1, 20, 10, 150);
 const mago: MagoRpg = new MagoRpg("", "Mago", "Gustavo", 1, 10, 20, 100);
 const arqueiro: ArqueiroRpg = new ArqueiroRpg("", "Arqueiro", "Gustavo", 1, 15, 15, 120);
-const inimigo: InimigoRpg = new InimigoRpg("Orc", 12, 30, 20, 150);
 const batalhaRpg = new BatalhaRpg();
 let personagemSelecionado: GuerreiroRpg | MagoRpg | ArqueiroRpg = guerreiro;
 
@@ -121,6 +120,7 @@ while (true) {
             break;
 
         case 8:
+            const inimigo = gerarInimigoAleatorio();
             console.log("=".repeat(40));
             console.log(`BATALHA INICIADA: ${personagemSelecionado.nome} VS ${inimigo.tipo}`);
             console.log("-".repeat(40));

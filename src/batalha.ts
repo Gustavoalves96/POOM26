@@ -10,15 +10,38 @@ export class BatalhaRpg {
 		return personagem.nivel + personagem.armaduraBase + personagem.ataqueBase + personagem.vidaBase;
 	}
 
+	private gerarVariacao(base: number): number {
+		const faixa = Math.max(5, Math.round(base * 0.08));
+		const sorte = Math.floor(Math.random() * (faixa * 2 + 1)) - faixa;
+		return base + sorte;
+	}
+
+	private aplicarCritico(poder: number, chance: number): number {
+		if (Math.random() >= chance) {
+			return poder;
+		}
+
+		return Math.round(poder * 1.25);
+	}
+
 	iniciarBatalha(personagem: PersonagemRpg, inimigo: InimigoRpg): ResultadoBatalha {
 		const atributosPersonagem = this.calcularAtributosTotais(personagem);
 		const atributosInimigo = this.calcularAtributosTotais(inimigo);
 
-		if (atributosInimigo > atributosPersonagem) {
+		let poderPersonagem = this.gerarVariacao(atributosPersonagem);
+		let poderInimigo = this.gerarVariacao(atributosInimigo);
+
+		const diferenca = Math.abs(atributosPersonagem - atributosInimigo);
+		const chanceCritico = diferenca <= 20 ? 0.22 : 0.1;
+
+		poderPersonagem = this.aplicarCritico(poderPersonagem, chanceCritico);
+		poderInimigo = this.aplicarCritico(poderInimigo, chanceCritico);
+
+		if (poderInimigo > poderPersonagem) {
 			return "derrota";
 		}
 
-		if (atributosInimigo < atributosPersonagem) {
+		if (poderInimigo < poderPersonagem) {
 			return "vitoria";
 		}
 
