@@ -1,12 +1,14 @@
 import prompt from "prompt-sync";
 import { GuerreiroRpg, MagoRpg, ArqueiroRpg } from "./personagem";
 import { InimigoRpg } from "./inimigo";
+import { BatalhaRpg } from "./batalha";
 
 const teclado = prompt();
 const guerreiro: GuerreiroRpg = new GuerreiroRpg("", "Guerreiro", "Gustavo", 1, 20, 10, 150);
 const mago: MagoRpg = new MagoRpg("", "Mago", "Gustavo", 1, 10, 20, 100);
 const arqueiro: ArqueiroRpg = new ArqueiroRpg("", "Arqueiro", "Gustavo", 1, 15, 15, 120);
 const inimigo: InimigoRpg = new InimigoRpg("Orc", 12, 30, 20, 150);
+const batalhaRpg = new BatalhaRpg();
 let personagemSelecionado: GuerreiroRpg | MagoRpg | ArqueiroRpg = guerreiro;
 
 function subirNivelGuerreiro(personagem: GuerreiroRpg) {
@@ -33,32 +35,6 @@ function subirNivel(personagem: GuerreiroRpg | MagoRpg | ArqueiroRpg): void {
     }
 
     subirNivelArqueiro(personagem);
-}
-
-function batalha(personagem: GuerreiroRpg | MagoRpg | ArqueiroRpg, inimigo: InimigoRpg): void {
-    console.log("=".repeat(40));
-    console.log(`BATALHA INICIADA: ${personagem.nome} VS ${inimigo.tipo}`);
-    console.log("-".repeat(40));
-
-    const atributosPersonagem = personagem.nivel + personagem.armaduraBase + personagem.ataqueBase + personagem.vidaBase;
-    const atributosInimigo = inimigo.nivel + inimigo.armaduraBase + inimigo.ataqueBase + inimigo.vidaBase;
-
-    if (atributosInimigo > atributosPersonagem) {
-        console.log("O personagem morreu.");
-        console.log("=".repeat(40));
-        return;
-    }
-
-    if (atributosInimigo < atributosPersonagem) {
-        console.log("=".repeat(40));
-        console.log("Ganhamos a batalha!");
-        console.log("=".repeat(40));
-        return;
-    }
-
-    console.log("=".repeat(40));
-    console.log("A batalha terminou empatada.");
-    console.log("=".repeat(40));
 }
 
 function definirNome(personagem: GuerreiroRpg | MagoRpg | ArqueiroRpg) {
@@ -97,6 +73,7 @@ while (true) {
     console.log(" 6. Exibir ficha do personagem: ");
     console.log(" 7. Subir nível do personagem: ");
     console.log(" 8. Iniciar batalha: ");
+    console.log(" 9. ")
 
     const escolha = +teclado("Digite a opção: ");
 
@@ -144,15 +121,15 @@ while (true) {
             break;
 
         case 8:
-            if (!personagemSelecionado.nome.trim() || !personagemSelecionado.jogador.trim()) {
-                console.log("=".repeat(40));
-                console.log("ESCOLHA UM NOME PARA O PERSONAGEM E/OU JOGADOR!!");
-                console.log("=".repeat(40));
-                break;
-            }
-            batalha(personagemSelecionado, inimigo);
+            console.log("=".repeat(40));
+            console.log(`BATALHA INICIADA: ${personagemSelecionado.nome} VS ${inimigo.tipo}`);
+            console.log("-".repeat(40));
+            console.log(batalhaRpg.obterMensagemResultado(personagemSelecionado, inimigo));
+            console.log("=".repeat(40));
             teclado("Pressione Enter para continuar...");
             break;
+
+        
 
         default:
             console.log("Opção inválida");

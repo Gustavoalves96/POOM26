@@ -1,5 +1,21 @@
 export class GuerreiroRpg {
-    constructor(public nome: string, public classe: string, public jogador: string, public nivel: number, public armaduraBase: number, public ataqueBase: number, public vidaBase: number) {}
+  nome: string;
+  classe: string;
+  jogador: string;
+  nivel: number;
+  armaduraBase: number;
+  ataqueBase: number;
+  vidaBase: number;
+
+  constructor(nome: string, classe: string, jogador: string, nivel: number, armaduraBase: number, ataqueBase: number, vidaBase: number) {
+    this.nome = nome;
+    this.classe = classe;
+    this.jogador = jogador;
+    this.nivel = nivel;
+    this.armaduraBase = armaduraBase;
+    this.ataqueBase = ataqueBase;
+    this.vidaBase = vidaBase;
+  }
 
     subirNivelG(): void {
         this.nivel += 1;
@@ -26,7 +42,23 @@ export class GuerreiroRpg {
 }
 
 export class MagoRpg {
-    constructor(public nome: string, public classe: string, public jogador: string, public nivel: number, public armaduraBase: number, public ataqueBase: number, public vidaBase: number) {}
+  nome: string;
+  classe: string;
+  jogador: string;
+  nivel: number;
+  armaduraBase: number;
+  ataqueBase: number;
+  vidaBase: number;
+
+  constructor(nome: string, classe: string, jogador: string, nivel: number, armaduraBase: number, ataqueBase: number, vidaBase: number) {
+    this.nome = nome;
+    this.classe = classe;
+    this.jogador = jogador;
+    this.nivel = nivel;
+    this.armaduraBase = armaduraBase;
+    this.ataqueBase = ataqueBase;
+    this.vidaBase = vidaBase;
+  }
 
     subirNivelM(): void {
         this.nivel += 1;
@@ -55,7 +87,23 @@ export class MagoRpg {
 }
 
 export class ArqueiroRpg {
-    constructor(public nome: string, public classe: string, public jogador: string, public nivel: number, public armaduraBase: number, public ataqueBase: number, public vidaBase: number) {}
+  nome: string;
+  classe: string;
+  jogador: string;
+  nivel: number;
+  armaduraBase: number;
+  ataqueBase: number;
+  vidaBase: number;
+
+  constructor(nome: string, classe: string, jogador: string, nivel: number, armaduraBase: number, ataqueBase: number, vidaBase: number) {
+    this.nome = nome;
+    this.classe = classe;
+    this.jogador = jogador;
+    this.nivel = nivel;
+    this.armaduraBase = armaduraBase;
+    this.ataqueBase = ataqueBase;
+    this.vidaBase = vidaBase;
+  }
 
     subirNivelA(): void {
         this.nivel += 1;
