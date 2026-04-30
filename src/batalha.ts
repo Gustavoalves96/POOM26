@@ -1,5 +1,7 @@
 import { InimigoRpg } from "./inimigo";
-import { ArqueiroRpg, GuerreiroRpg, MagoRpg } from "./personagem";
+import { GuerreiroRpg } from "./guerreiro";
+import { MagoRpg } from "./mago";
+import { ArqueiroRpg } from "./arqueiro";
 
 type PersonagemRpg = GuerreiroRpg | MagoRpg | ArqueiroRpg;
 
@@ -7,7 +9,7 @@ export type ResultadoBatalha = "vitoria" | "derrota" | "empate";
 
 export class BatalhaRpg {
 	private calcularAtributosTotais(personagem: PersonagemRpg | InimigoRpg): number {
-		return personagem.nivel + personagem.armaduraBase + personagem.ataqueBase + personagem.vidaBase;
+		return personagem.obterNivel() + personagem.obterArmaduraBase() + personagem.obterAtaqueBase() + personagem.obterVidaBase();
 	}
 
 	private gerarVariacao(base: number): number {

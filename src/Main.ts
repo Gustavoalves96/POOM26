@@ -1,5 +1,7 @@
 import prompt from "prompt-sync";
-import { GuerreiroRpg, MagoRpg, ArqueiroRpg } from "./personagem";
+import { GuerreiroRpg } from "./guerreiro";
+import { MagoRpg } from "./mago";
+import { ArqueiroRpg } from "./arqueiro";
 import { gerarInimigoAleatorio } from "./inimigo";
 import { BatalhaRpg } from "./batalha";
 
@@ -79,19 +81,19 @@ while (true) {
     switch (escolha) {
         case 1:
             personagemSelecionado = guerreiro;
-            console.log(`Classe selecionada: ${personagemSelecionado.classe}`);
+            console.log(`Classe selecionada: ${personagemSelecionado.obterClasse()}`);
             teclado("Pressione Enter para continuar...");
             break;
 
         case 2:
             personagemSelecionado = mago;
-            console.log(`Classe selecionada: ${personagemSelecionado.classe}`);
+            console.log(`Classe selecionada: ${personagemSelecionado.obterClasse()}`);
             teclado("Pressione Enter para continuar...");
             break;
 
         case 3:
             personagemSelecionado = arqueiro;
-            console.log(`Classe selecionada: ${personagemSelecionado.classe}`);
+            console.log(`Classe selecionada: ${personagemSelecionado.obterClasse()}`);
             teclado("Pressione Enter para continuar...");
             break;
 
@@ -114,7 +116,7 @@ while (true) {
         case 7:
             subirNivel(personagemSelecionado);
             console.log("=".repeat(40));
-            console.log(`NÍVEL ATUAL: ${personagemSelecionado.nivel}`);
+            console.log(`NÍVEL ATUAL: ${personagemSelecionado.obterNivel()}`);
             console.log("=".repeat(40));
             teclado("Pressione Enter para continuar...");
             break;
@@ -122,7 +124,7 @@ while (true) {
         case 8:
             const inimigo = gerarInimigoAleatorio();
             console.log("=".repeat(40));
-            console.log(`BATALHA INICIADA: ${personagemSelecionado.nome} VS ${inimigo.tipo}`);
+            console.log(`BATALHA INICIADA: ${personagemSelecionado.obterNome()} VS ${inimigo.obterTipo()}`);
             console.log("-".repeat(40));
             console.log(batalhaRpg.obterMensagemResultado(personagemSelecionado, inimigo));
             console.log("=".repeat(40));

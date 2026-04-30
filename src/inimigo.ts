@@ -1,9 +1,9 @@
 export class InimigoRpg {
-    tipo: string;
-    nivel: number;
-    armaduraBase: number;
-    ataqueBase: number;
-    vidaBase: number;
+    private tipo: string;
+    private nivel: number;
+    private armaduraBase: number;
+    private ataqueBase: number;
+    private vidaBase: number;
 
     constructor(tipo: string, nivel: number, armaduraBase: number, ataqueBase: number, vidaBase: number) {
         this.tipo = tipo;
@@ -11,6 +11,26 @@ export class InimigoRpg {
         this.armaduraBase = armaduraBase;
         this.ataqueBase = ataqueBase;
         this.vidaBase = vidaBase;
+    }
+
+    obterTipo(): string {
+        return this.tipo;
+    }
+
+    obterNivel(): number {
+        return this.nivel;
+    }
+
+    obterArmaduraBase(): number {
+        return this.armaduraBase;
+    }
+
+    obterAtaqueBase(): number {
+        return this.ataqueBase;
+    }
+
+    obterVidaBase(): number {
+        return this.vidaBase;
     }
 }
 
