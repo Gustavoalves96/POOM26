@@ -74,8 +74,7 @@ while (true) {
     console.log(" 6. Exibir ficha do personagem: ");
     console.log(" 7. Subir nível do personagem: ");
     console.log(" 8. Iniciar batalha: ");
-    console.log(" 9. ")
-
+    
     const escolha = +teclado("Digite a opção: ");
 
     switch (escolha) {
