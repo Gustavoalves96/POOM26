@@ -1,9 +1,10 @@
 import prompt from "prompt-sync";
-import { GuerreiroRpg } from "./guerreiro";
-import { MagoRpg } from "./mago";
-import { ArqueiroRpg } from "./arqueiro";
-import { gerarInimigoAleatorio } from "./inimigo";
-import { BatalhaRpg } from "./batalha";
+import { GuerreiroRpg } from "./Personagens/guerreiro";
+import { MagoRpg } from "./Personagens/mago";
+import { ArqueiroRpg } from "./Personagens/arqueiro";
+import { gerarInimigoAleatorio } from "./Personagens/inimigo";
+import { BatalhaRpg } from "./Batalha/batalha";
+import { PersonagemRpg } from "./Personagens/Personagem";
 
 const teclado = prompt();
 const guerreiro: GuerreiroRpg = new GuerreiroRpg("", "Guerreiro", "Gustavo", 1, 20, 10, 150);
@@ -12,30 +13,8 @@ const arqueiro: ArqueiroRpg = new ArqueiroRpg("", "Arqueiro", "Gustavo", 1, 15, 
 const batalhaRpg = new BatalhaRpg();
 let personagemSelecionado: GuerreiroRpg | MagoRpg | ArqueiroRpg = guerreiro;
 
-function subirNivelGuerreiro(personagem: GuerreiroRpg) {
-    personagem.subirNivelG();
-}
-
-function subirNivelMago(personagem: MagoRpg) {
-    personagem.subirNivelM();
-}
-
-function subirNivelArqueiro(personagem: ArqueiroRpg) {
-    personagem.subirNivelA();
-}
-
-function subirNivel(personagem: GuerreiroRpg | MagoRpg | ArqueiroRpg): void {
-    if (personagem instanceof GuerreiroRpg) {
-        subirNivelGuerreiro(personagem);
-        return;
-    }
-
-    if (personagem instanceof MagoRpg) {
-        subirNivelMago(personagem);
-        return;
-    }
-
-    subirNivelArqueiro(personagem);
+function subirNivel(personagem:PersonagemRpg) {
+    personagem.subirNivel();
 }
 
 function definirNome(personagem: GuerreiroRpg | MagoRpg | ArqueiroRpg) {

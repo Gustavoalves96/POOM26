@@ -1,27 +1,24 @@
-export class MagoRpg {
-  private nome: string;
-  private classe: string;
-  private jogador: string;
-  private nivel: number;
-  private armaduraBase: number;
-  private ataqueBase: number;
-  private vidaBase: number;
+export class PersonagemRpg {
+    protected nome: string;
+    protected classe: string;
+    protected jogador: string;
+    protected nivel: number;
+    protected armaduraBase: number;
+    protected ataqueBase: number;
+    protected vidaBase: number;
 
-  constructor(nome: string, classe: string, jogador: string, nivel: number, armaduraBase: number, ataqueBase: number, vidaBase: number) {
-    this.nome = nome;
-    this.classe = classe;
-    this.jogador = jogador;
-    this.nivel = nivel;
-    this.armaduraBase = armaduraBase;
-    this.ataqueBase = ataqueBase;
-    this.vidaBase = vidaBase;
-  }
+    constructor(nome: string, classe: string, jogador: string, nivel: number, armaduraBase: number, ataqueBase: number, vidaBase: number) {
+        this.nome = nome;
+        this.classe = classe;
+        this.jogador = jogador;
+        this.nivel = nivel;
+        this.armaduraBase = armaduraBase;
+        this.ataqueBase = ataqueBase;
+        this.vidaBase = vidaBase;
+    }
 
-    subirNivelM(): void {
-        this.nivel += 1;
-        this.armaduraBase += 2;
-        this.ataqueBase += 8;
-        this.vidaBase += 10;
+    subirNivel(): void {
+        
     }
 
     definirNome(nome: string): void {

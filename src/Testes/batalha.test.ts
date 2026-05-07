@@ -1,7 +1,7 @@
 import {describe, expect, test} from '@jest/globals';
-import { BatalhaRpg } from './batalha';
-import { GuerreiroRpg } from './guerreiro';
-import { InimigoRpg } from './inimigo';
+import { BatalhaRpg } from '../Batalha/batalha';
+import { GuerreiroRpg } from '../Personagens/guerreiro';
+import { InimigoRpg } from '../Personagens/inimigo';
 
 describe('Quando uma batalha é encerrada', () => {
   test('Deve retornar derrota quando os atributos do personagem forem menores que os do inimigo', () => {

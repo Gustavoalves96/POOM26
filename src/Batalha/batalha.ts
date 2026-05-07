@@ -1,9 +1,5 @@
-import { InimigoRpg } from "./inimigo";
-import { GuerreiroRpg } from "./guerreiro";
-import { MagoRpg } from "./mago";
-import { ArqueiroRpg } from "./arqueiro";
-
-type PersonagemRpg = GuerreiroRpg | MagoRpg | ArqueiroRpg;
+import { InimigoRpg } from "../Personagens/inimigo";
+import { PersonagemRpg } from "../Personagens/Personagem";
 
 export type ResultadoBatalha = "vitoria" | "derrota" | "empate";
 
